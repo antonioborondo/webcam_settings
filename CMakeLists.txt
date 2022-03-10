@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.22.3)
 
 project(webcam_settings VERSION 1.0.0)
 
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR}) #move this before find package
-
 set(CMAKE_CXX_STANDARD 17)
 
 set(CONAN_CMAKE ${CMAKE_BINARY_DIR}/conan.cmake)
@@ -60,9 +58,9 @@ conan_cmake_install(
     SETTINGS ${settings}
 )
 
-find_package(opencv REQUIRED)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
 
-#link_directories("C:/.conan/9e0b86/1/lib/")
+find_package(opencv REQUIRED)
 
 add_executable(webcam_settings
     src/main.cpp
