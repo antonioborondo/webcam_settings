@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.22.3)
 
 project(webcam_settings VERSION 1.0.0)
 
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR}) #move this before find package
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -21,33 +21,33 @@ include(${CONAN_CMAKE})
 conan_cmake_configure(
     REQUIRES opencv/4.5.5
     OPTIONS
-    opencv:shared=False
-    opencv:contrib=False
-    opencv:contrib_freetype=False
-    opencv:contrib_sfm=False
-    opencv:parallel=False
-    opencv:with_ipp=False
-    opencv:with_ade=False
-    opencv:with_jpeg=False
-    opencv:with_png=False
-    opencv:with_tiff=False
-    opencv:with_jpeg2000=False
-    opencv:with_openexr=False
-    opencv:with_eigen=False
-    opencv:with_webp=False
-    opencv:with_quirc=False
-    opencv:with_cuda=False
-    opencv:with_cublas=False
-    opencv:with_cufft=False
-    opencv:with_cudnn=False
+#    opencv:shared=False
+#    opencv:contrib=False
+#    opencv:contrib_freetype=False
+#    opencv:contrib_sfm=False
+#    opencv:parallel=False
+#    opencv:with_ipp=False
+#    opencv:with_ade=False
+#    opencv:with_jpeg=False
+#    opencv:with_png=False
+#    opencv:with_tiff=False
+#    opencv:with_jpeg2000=False
+#    opencv:with_openexr=False
+#    opencv:with_eigen=False
+#    opencv:with_webp=False
+#    opencv:with_quirc=False
+#    opencv:with_cuda=False
+#    opencv:with_cublas=False#desde aki
+#    opencv:with_cufft=False
+#    opencv:with_cudnn=False
     opencv:with_ffmpeg=False
-    opencv:with_imgcodec_hdr=False
-    opencv:with_imgcodec_pfm=False
-    opencv:with_imgcodec_pxm=False
-    opencv:with_imgcodec_sunraster=False
-    opencv:dnn=False
-    opencv:dnn_cuda=False
-    opencv:nonfree=False
+#    opencv:with_imgcodec_hdr=False
+#    opencv:with_imgcodec_pfm=False#hasta aki
+#    opencv:with_imgcodec_pxm=False
+#    opencv:with_imgcodec_sunraster=False
+#    opencv:dnn=False
+#    opencv:dnn_cuda=False
+#    opencv:nonfree=False
     GENERATORS cmake_find_package
 )
 
@@ -61,6 +61,8 @@ conan_cmake_install(
 )
 
 find_package(opencv REQUIRED)
+
+#link_directories("C:/.conan/9e0b86/1/lib/")
 
 add_executable(webcam_settings
     src/main.cpp
