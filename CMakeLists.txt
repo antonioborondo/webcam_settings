@@ -8,8 +8,8 @@ set(CONAN_CMAKE ${CMAKE_BINARY_DIR}/conan.cmake)
 
 if(NOT EXISTS ${CONAN_CMAKE})
     message(STATUS "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
-    file(DOWNLOAD "https://raw.githubusercontent.com/conan-io/cmake-conan/v0.16.1/conan.cmake" ${CONAN_CMAKE}
-        EXPECTED_HASH SHA256=396e16d0f5eabdc6a14afddbcfff62a54a7ee75c6da23f32f7a31bc85db23484
+    file(DOWNLOAD "https://raw.githubusercontent.com/conan-io/cmake-conan/0.17.0/conan.cmake" ${CONAN_CMAKE}
+        EXPECTED_HASH SHA256=3BEF79DA16C2E031DC429E1DAC87A08B9226418B300CE004CC125A82687BAEEF
         TLS_VERIFY ON
     )
 endif()
