@@ -19,33 +19,7 @@ include(${CONAN_CMAKE})
 conan_cmake_configure(
     REQUIRES opencv/4.5.5
     OPTIONS
-#    opencv:shared=False
-#    opencv:contrib=False
-#    opencv:contrib_freetype=False
-#    opencv:contrib_sfm=False
-#    opencv:parallel=False
-#    opencv:with_ipp=False
-#    opencv:with_ade=False
-#    opencv:with_jpeg=False
-#    opencv:with_png=False
-#    opencv:with_tiff=False
-#    opencv:with_jpeg2000=False
-#    opencv:with_openexr=False
-#    opencv:with_eigen=False
-#    opencv:with_webp=False
-#    opencv:with_quirc=False
-#    opencv:with_cuda=False
-#    opencv:with_cublas=False#desde aki
-#    opencv:with_cufft=False
-#    opencv:with_cudnn=False
     opencv:with_ffmpeg=False
-#    opencv:with_imgcodec_hdr=False
-#    opencv:with_imgcodec_pfm=False#hasta aki
-#    opencv:with_imgcodec_pxm=False
-#    opencv:with_imgcodec_sunraster=False
-#    opencv:dnn=False
-#    opencv:dnn_cuda=False
-#    opencv:nonfree=False
     GENERATORS cmake_find_package
 )
 
