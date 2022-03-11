@@ -1,8 +1,9 @@
 #include <opencv2/opencv.hpp>
 
+#include <iostream>
 #include <string>
 
-int main()
+int main(int argc, const char** argv)
 {
     cv::VideoCapture video_capture(0);
     if(!video_capture.isOpened())
@@ -10,21 +11,18 @@ int main()
         return -1;
     }
 
-    const std::string window_name{"Video"};
-    cv::namedWindow(window_name, 1);
+    auto exposure{video_capture.get(cv::CAP_PROP_EXPOSURE)};
 
-    for(;;)
+    std::cout << "Default exposure: " << exposure << std::endl;
+
+    if(argc > 1)
     {
-        cv::Mat frame;
-        video_capture >> frame;
-
-        cv::imshow(window_name, frame);
-
-        if(cv::waitKey(30) >= 0)
-        {
-            break;
-        }
+        exposure = std::stod(argv[1]);
     }
+
+    video_capture.set(cv::CAP_PROP_EXPOSURE, exposure);
+
+    std::cout << "New exposure: " << exposure << std::endl;
 
     return 0;
 }
