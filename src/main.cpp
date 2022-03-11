@@ -10,7 +10,7 @@ int main()
         return -1;
     }
 
-    std::string window_name{"Video"};
+    const std::string window_name{"Video"};
     cv::namedWindow(window_name, 1);
 
     for(;;)
