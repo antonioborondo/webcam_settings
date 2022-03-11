@@ -1,38 +1,42 @@
 #include <opencv2/opencv.hpp>
+#include <QApplication>
 
 #include <iostream>
 #include <string>
 
-int main(int argc, const char** argv)
+int main(int argc, char** argv)
 {
-    if(argc < 2)
-    {
-        std::cout << "Usage: webcam_settings.exe <device> [<exposure>]" << std::endl;
+    QApplication application(argc, argv);
+    return application.exec();
 
-        return -1;
-    }
+//    if(argc < 2)
+//    {
+//        std::cout << "Usage: webcam_settings.exe <device> [<exposure>]" << std::endl;
 
-    const auto device{std::stoi(argv[1])};
-    cv::VideoCapture video_capture(device);
-    if(!video_capture.isOpened())
-    {
-        std::cout << "Error: Cannot open device " << device << std::endl;
+//        return -1;
+//    }
 
-        return -1;
-    }
+//    const auto device{std::stoi(argv[1])};
+//    cv::VideoCapture video_capture(device);
+//    if(!video_capture.isOpened())
+//    {
+//        std::cout << "Error: Cannot open device " << device << std::endl;
 
-    auto exposure{video_capture.get(cv::CAP_PROP_EXPOSURE)};
+//        return -1;
+//    }
 
-    std::cout << "Default exposure: " << exposure << std::endl;
+//    auto exposure{video_capture.get(cv::CAP_PROP_EXPOSURE)};
 
-    if(argc > 2)
-    {
-        exposure = std::stod(argv[2]);
-    }
+//    std::cout << "Default exposure: " << exposure << std::endl;
 
-    video_capture.set(cv::CAP_PROP_EXPOSURE, exposure);
+//    if(argc > 2)
+//    {
+//        exposure = std::stod(argv[2]);
+//    }
 
-    std::cout << "New exposure: " << exposure << std::endl;
+//    video_capture.set(cv::CAP_PROP_EXPOSURE, exposure);
 
-    return 0;
+//    std::cout << "New exposure: " << exposure << std::endl;
+
+//    return 0;
 }

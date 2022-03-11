@@ -34,9 +34,14 @@ conan_cmake_install(
     SETTINGS ${settings}
 )
 
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
 
 find_package(opencv REQUIRED)
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 add_executable(webcam_settings
     src/main.cpp
@@ -45,4 +50,5 @@ add_executable(webcam_settings
 target_link_libraries(webcam_settings
     PRIVATE
     opencv::opencv
+    Qt6::Widgets
 )
