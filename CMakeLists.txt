@@ -19,7 +19,7 @@ include(${CONAN_CMAKE})
 conan_cmake_configure(
     REQUIRES
     opencv/4.5.5
-    qt/6.2.3
+    qt/6.2.2
     OPTIONS
     opencv:with_ffmpeg=False
     GENERATORS cmake_find_package
