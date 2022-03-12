@@ -10,14 +10,20 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: windows-2022
     steps:
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: '6.2.3'
+          host: 'windows'
+          target: 'desktop'
       - name: Install Conan
         run: pip install conan
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure
-        run: cmake -G "Visual Studio 16 2019" -B build -DCMAKE_BUILD_TYPE=Release
+        run: cmake -G "Visual Studio 17 2022" -B build -DCMAKE_BUILD_TYPE=Release
       - name: Build
         run: cmake --build build --config Release
       - name: Publish
