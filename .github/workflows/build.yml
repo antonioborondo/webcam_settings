@@ -12,6 +12,12 @@ jobs:
   build:
     runs-on: windows-2022
     steps:
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: '6.2.3'
+          host: 'windows'
+          target: 'desktop'
       - name: Install Conan
         run: pip install conan
       - name: Checkout
