@@ -17,7 +17,8 @@ endif()
 include(${CONAN_CMAKE})
 
 conan_cmake_configure(
-    REQUIRES opencv/4.5.5
+    REQUIRES
+    opencv/4.5.5
     OPTIONS
     opencv:with_ffmpeg=False
     GENERATORS cmake_find_package
@@ -32,9 +33,9 @@ conan_cmake_install(
     SETTINGS ${settings}
 )
 
+set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
 
@@ -43,6 +44,14 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 add_executable(webcam_settings
     src/main.cpp
+    src/webcam_settings.cpp
+    src/webcam_settings.h
+    src/webcam_settings.ui
+)
+
+target_include_directories(webcam_settings
+    PRIVATE
+    src
 )
 
 target_link_libraries(webcam_settings
