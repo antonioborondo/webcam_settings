@@ -15,6 +15,9 @@ public:
     webcam_settings(QWidget *parent = nullptr);
     ~webcam_settings();
 
+private slots:
+    void on_m_change_button_clicked();
+
 private:
     Ui::webcam_settings *ui;
 };
