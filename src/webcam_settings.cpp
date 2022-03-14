@@ -1,5 +1,6 @@
 #include "webcam_settings.h"
 #include "./ui_webcam_settings.h"
+#include "video_capture_devices.h"
 
 #include <opencv2/opencv.hpp>
 

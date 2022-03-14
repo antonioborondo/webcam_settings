@@ -44,6 +44,7 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 add_executable(webcam_settings
     src/main.cpp
+    src/video_capture_devices.cpp
     src/webcam_settings.cpp
     src/webcam_settings.h
     src/webcam_settings.ui
