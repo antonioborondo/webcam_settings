@@ -1,5 +1,13 @@
 #include "video_capture_devices.h"
 
+#include <string>
+#include <dshow.h>
+#include <vector>
+#include <stdint.h>
+#include <iostream>
+#include <fstream>
+#include <exception>
+
 HRESULT Video_capture_devices::EnumerateDevices(REFGUID category, IEnumMoniker **ppEnum)
 {
     // Create the System Device Enumerator.

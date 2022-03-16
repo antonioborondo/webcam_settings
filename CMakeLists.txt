@@ -59,4 +59,7 @@ target_link_libraries(webcam_settings
     PRIVATE
     opencv::opencv
     Qt6::Widgets
+    ole32
+    oleaut32
+    strmiids
 )

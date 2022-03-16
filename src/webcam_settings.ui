@@ -19,7 +19,7 @@
      <rect>
       <x>30</x>
       <y>20</y>
-      <width>160</width>
+      <width>169</width>
       <height>108</height>
      </rect>
     </property>
@@ -30,9 +30,6 @@
         <string>Device</string>
        </property>
       </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="m_device_value"/>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="m_default_exposure_label">
@@ -65,17 +62,10 @@
        </property>
       </widget>
      </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="m_devices"/>
+     </item>
     </layout>
-   </widget>
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>120</y>
-      <width>72</width>
-      <height>24</height>
-     </rect>
-    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
