@@ -8,6 +8,23 @@
 #include <fstream>
 #include <exception>
 
+Video_capture_devices::Video_capture_devices()
+{
+    HRESULT hr = CoInitializeEx(NULL, COINIT_MULTITHREADED);
+    if (SUCCEEDED(hr))
+    {
+        IEnumMoniker *pEnum;
+
+        hr = EnumerateDevices(CLSID_VideoInputDeviceCategory, &pEnum);
+        if (SUCCEEDED(hr))
+        {
+            DisplayDeviceInformation(pEnum);
+            pEnum->Release();
+        }
+        CoUninitialize();
+    }
+}
+
 const std::vector<std::wstring> Video_capture_devices::get_list() const
 {
     return m_list;
@@ -85,28 +102,5 @@ void Video_capture_devices::DisplayDeviceInformation(IEnumMoniker *pEnum)
 
         pPropBag->Release();
         pMoniker->Release();
-    }
-}
-
-Video_capture_devices::Video_capture_devices()
-{
-    HRESULT hr = CoInitializeEx(NULL, COINIT_MULTITHREADED);
-    if (SUCCEEDED(hr))
-    {
-        IEnumMoniker *pEnum;
-
-        hr = EnumerateDevices(CLSID_VideoInputDeviceCategory, &pEnum);
-        if (SUCCEEDED(hr))
-        {
-            DisplayDeviceInformation(pEnum);
-            pEnum->Release();
-        }
-        hr = EnumerateDevices(CLSID_AudioInputDeviceCategory, &pEnum);
-        if (SUCCEEDED(hr))
-        {
-            DisplayDeviceInformation(pEnum);
-            pEnum->Release();
-        }
-        CoUninitialize();
     }
 }
