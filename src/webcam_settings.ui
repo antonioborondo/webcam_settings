@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>webcam_settings</class>
- <widget class="QMainWindow" name="webcam_settings">
+ <class>Webcam_settings</class>
+ <widget class="QMainWindow" name="Webcam_settings">
   <property name="geometry">
    <rect>
     <x>0</x>

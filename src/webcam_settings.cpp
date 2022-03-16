@@ -7,10 +7,10 @@
 #include <iostream>
 #include <string>
 
-webcam_settings::webcam_settings(const std::vector<std::wstring> &list_devices, QWidget *parent)
+Webcam_settings::Webcam_settings(const std::vector<std::wstring> &list_devices, QWidget *parent)
     : m_list_devices{list_devices}
      , QMainWindow(parent)
-    , ui(new Ui::webcam_settings)
+    , ui(new Ui::Webcam_settings)
 {
     ui->setupUi(this);
     for(const auto device : m_list_devices)
@@ -27,12 +27,12 @@ webcam_settings::webcam_settings(const std::vector<std::wstring> &list_devices, 
 //    ui->setupUi(this);
 //}
 
-webcam_settings::~webcam_settings()
+Webcam_settings::~Webcam_settings()
 {
     delete ui;
 }
 
-void webcam_settings::on_m_change_button_clicked()
+void Webcam_settings::on_m_change_button_clicked()
 {
     const auto device{ui->m_devices->currentIndex()};
     cv::VideoCapture video_capture(device);
