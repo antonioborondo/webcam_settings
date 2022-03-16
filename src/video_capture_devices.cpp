@@ -8,7 +8,7 @@
 #include <fstream>
 #include <exception>
 
-const std::vector<std::wstring> Video_capture_devices::get_list()
+const std::vector<std::wstring> Video_capture_devices::get_list() const
 {
     return m_list;
 }

@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-    Video_capture_devices video_capture_devices;
+    const Video_capture_devices video_capture_devices;
     const auto video_capture_devices_list{video_capture_devices.get_list()};
 
     QApplication application(argc, argv);

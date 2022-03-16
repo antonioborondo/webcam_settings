@@ -1,13 +1,10 @@
 #pragma once
 
+#include <dshow.h>
+#include <stdint.h>
+
 #include <string>
 #include <vector>
-#include <dshow.h>
-
-#include <stdint.h>
-//#include <iostream>
-//#include <fstream>
-//#include <exception>
 
 class Video_capture_devices
 {
@@ -15,7 +12,7 @@ class Video_capture_devices
 
 public:
     Video_capture_devices();
-    const std::vector<std::wstring> get_list();
+    const std::vector<std::wstring> get_list() const;
 
 private:
     HRESULT EnumerateDevices(REFGUID category, IEnumMoniker **ppEnum);
