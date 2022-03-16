@@ -13,11 +13,10 @@ class Webcam_settings : public QMainWindow
 {
     Q_OBJECT
 
-    std::vector<std::wstring> m_list_devices;
+    std::vector<std::wstring> m_video_capture_devices_list;
 
 public:
-    Webcam_settings(const std::vector<std::wstring> &list_devices, QWidget *parent = nullptr);
-    //webcam_settings(QWidget *parent = nullptr);
+    Webcam_settings(const std::vector<std::wstring> &video_capture_devices_list, QWidget *parent = nullptr);
     ~Webcam_settings();
 
 private slots:
