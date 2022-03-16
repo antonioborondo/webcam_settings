@@ -7,24 +7,25 @@
 #include <iostream>
 #include <string>
 
-//webcam_settings::webcam_settings(const std::vector<std::wstring> &list_devices, QWidget *parent)
-//    : m_list_devices{list_devices}
-//     , QMainWindow(parent)
-//    , ui(new Ui::webcam_settings)
-//{
-//    for(const auto device : m_list_devices)
-//    {
-//        ui->m_devices->addItem(QString::fromStdWString(device));
-//    }
-//    ui->setupUi(this);
-//}
-
-webcam_settings::webcam_settings(QWidget *parent)
-    : QMainWindow(parent)
+webcam_settings::webcam_settings(const std::vector<std::wstring> &list_devices, QWidget *parent)
+    : m_list_devices{list_devices}
+     , QMainWindow(parent)
     , ui(new Ui::webcam_settings)
 {
     ui->setupUi(this);
+    for(const auto device : m_list_devices)
+    {
+        ui->m_devices->addItem(QString::fromStdWString(device));
+    }
+
 }
+
+//webcam_settings::webcam_settings(QWidget *parent)
+//    : QMainWindow(parent)
+//    , ui(new Ui::webcam_settings)
+//{
+//    ui->setupUi(this);
+//}
 
 webcam_settings::~webcam_settings()
 {

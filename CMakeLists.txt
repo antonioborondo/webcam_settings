@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.22.3)
 project(webcam_settings VERSION 1.0.0)
 
 set(CMAKE_CXX_STANDARD 17)
+#set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MD")
+#set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MDd")
 
 set(CONAN_CMAKE ${CMAKE_BINARY_DIR}/conan.cmake)
 

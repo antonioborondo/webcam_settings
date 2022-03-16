@@ -8,6 +8,11 @@
 #include <fstream>
 #include <exception>
 
+const std::vector<std::wstring> Video_capture_devices::get_list()
+{
+    return m_list;
+}
+
 HRESULT Video_capture_devices::EnumerateDevices(REFGUID category, IEnumMoniker **ppEnum)
 {
     // Create the System Device Enumerator.
