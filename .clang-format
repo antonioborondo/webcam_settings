@@ -9,7 +9,7 @@ AlignConsecutiveDeclarations: None
 AlignConsecutiveMacros: None
 AlignEscapedNewlines: DontAlign
 AlignOperands: Align
-AlignTrailingComments: true
+AlignTrailingComments: false
 AllowAllArgumentsOnNextLine: false
 AllowAllConstructorInitializersOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
@@ -56,8 +56,8 @@ ColumnLimit: 0
 #CommentPragmas:
 CompactNamespaces: false
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
-ConstructorInitializerIndentWidth: 2
-ContinuationIndentWidth: 2
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 4
 Cpp11BracedListStyle: true
 DeriveLineEnding: false
 DerivePointerAlignment: false
@@ -118,8 +118,8 @@ SpaceBeforeCaseColon: false
 SpaceBeforeCpp11BracedList: false
 SpaceBeforeCtorInitializerColon: false
 SpaceBeforeInheritanceColon: false
-SpaceBeforeParens: ControlStatements
-SpaceBeforeRangeBasedForLoopColon: true
+SpaceBeforeParens: Never
+SpaceBeforeRangeBasedForLoopColon: false
 SpaceBeforeSquareBrackets: false
 SpaceInEmptyBlock: false
 SpaceInEmptyParentheses: false
