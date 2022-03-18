@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>webcam_settings</class>
- <widget class="QMainWindow" name="webcam_settings">
+ <class>Webcam_settings</class>
+ <widget class="QMainWindow" name="Webcam_settings">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -19,20 +19,20 @@
      <rect>
       <x>30</x>
       <y>20</y>
-      <width>160</width>
+      <width>441</width>
       <height>108</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
+     <property name="fieldGrowthPolicy">
+      <enum>QFormLayout::ExpandingFieldsGrow</enum>
+     </property>
      <item row="0" column="0">
       <widget class="QLabel" name="m_device_label">
        <property name="text">
         <string>Device</string>
        </property>
       </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="m_device_value"/>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="m_default_exposure_label">
@@ -64,6 +64,9 @@
         <string>Change</string>
        </property>
       </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="m_devices"/>
      </item>
     </layout>
    </widget>
