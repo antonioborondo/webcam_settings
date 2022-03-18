@@ -1,26 +1,18 @@
 #include "video_capture_devices.h"
 
-#include <string>
-#include <dshow.h>
-#include <vector>
-#include <stdint.h>
-#include <iostream>
-#include <fstream>
-#include <exception>
-
 Video_capture_devices::Video_capture_devices()
 {
-    HRESULT hr = CoInitializeEx(NULL, COINIT_MULTITHREADED);
-    if (SUCCEEDED(hr))
+    HRESULT result{CoInitializeEx(NULL, COINIT_MULTITHREADED)};
+    if(SUCCEEDED(result))
     {
-        IEnumMoniker *pEnum;
-
-        hr = EnumerateDevices(CLSID_VideoInputDeviceCategory, &pEnum);
-        if (SUCCEEDED(hr))
+        IEnumMoniker* enumerator;
+        result = EnumerateDevices(CLSID_VideoInputDeviceCategory, &enumerator);
+        if(SUCCEEDED(result))
         {
-            DisplayDeviceInformation(pEnum);
-            pEnum->Release();
+            DisplayDeviceInformation(enumerator);
+            enumerator->Release();
         }
+
         CoUninitialize();
     }
 }
@@ -76,27 +68,7 @@ void Video_capture_devices::DisplayDeviceInformation(IEnumMoniker *pEnum)
         }
         if (SUCCEEDED(hr))
         {
-            printf("%S\n", var.bstrVal);
-            VariantClear(&var);
-        }
-
-        hr = pPropBag->Write(L"FriendlyName", &var);
-
-        m_list.push_back(var.bstrVal);
-
-        // WaveInID applies only to audio capture devices.
-        hr = pPropBag->Read(L"WaveInID", &var, 0);
-        if (SUCCEEDED(hr))
-        {
-            printf("WaveIn ID: %d\n", var.lVal);
-            VariantClear(&var);
-        }
-
-        hr = pPropBag->Read(L"DevicePath", &var, 0);
-        if (SUCCEEDED(hr))
-        {
-            // The device path is not intended for display.
-            printf("Device path: %S\n", var.bstrVal);
+            m_list.push_back(var.bstrVal);
             VariantClear(&var);
         }
 
