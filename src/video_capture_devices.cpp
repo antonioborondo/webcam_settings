@@ -22,36 +22,34 @@ const std::vector<std::wstring> Video_capture_devices::get_list() const
     return m_list;
 }
 
-HRESULT Video_capture_devices::EnumerateDevices(REFGUID category, IEnumMoniker **ppEnum)
+HRESULT Video_capture_devices::EnumerateDevices(REFGUID category, IEnumMoniker** ppEnum)
 {
     // Create the System Device Enumerator.
-    ICreateDevEnum *pDevEnum;
-    HRESULT hr = CoCreateInstance(CLSID_SystemDeviceEnum, NULL,
-        CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pDevEnum));
+    ICreateDevEnum* pDevEnum;
+    HRESULT hr = CoCreateInstance(CLSID_SystemDeviceEnum, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pDevEnum));
 
-    if (SUCCEEDED(hr))
+    if(SUCCEEDED(hr))
     {
         // Create an enumerator for the category.
         hr = pDevEnum->CreateClassEnumerator(category, ppEnum, 0);
-        if (hr == S_FALSE)
+        if(hr == S_FALSE)
         {
-            hr = VFW_E_NOT_FOUND;  // The category is empty. Treat as an error.
+            hr = VFW_E_NOT_FOUND; // The category is empty. Treat as an error.
         }
         pDevEnum->Release();
     }
     return hr;
 }
 
-
-void Video_capture_devices::DisplayDeviceInformation(IEnumMoniker *pEnum)
+void Video_capture_devices::DisplayDeviceInformation(IEnumMoniker* pEnum)
 {
-    IMoniker *pMoniker = NULL;
+    IMoniker* pMoniker = NULL;
 
-    while (pEnum->Next(1, &pMoniker, NULL) == S_OK)
+    while(pEnum->Next(1, &pMoniker, NULL) == S_OK)
     {
-        IPropertyBag *pPropBag;
+        IPropertyBag* pPropBag;
         HRESULT hr = pMoniker->BindToStorage(0, 0, IID_PPV_ARGS(&pPropBag));
-        if (FAILED(hr))
+        if(FAILED(hr))
         {
             pMoniker->Release();
             continue;
@@ -62,11 +60,11 @@ void Video_capture_devices::DisplayDeviceInformation(IEnumMoniker *pEnum)
 
         // Get description or friendly name.
         hr = pPropBag->Read(L"Description", &var, 0);
-        if (FAILED(hr))
+        if(FAILED(hr))
         {
             hr = pPropBag->Read(L"FriendlyName", &var, 0);
         }
-        if (SUCCEEDED(hr))
+        if(SUCCEEDED(hr))
         {
             m_list.push_back(var.bstrVal);
             VariantClear(&var);

@@ -7,14 +7,14 @@
 
 #include <iostream>
 
-Webcam_settings::Webcam_settings(const std::vector<std::wstring> &video_capture_devices_list, QWidget *parent)
-    : m_video_capture_devices_list{video_capture_devices_list}
-    , QMainWindow(parent)
-    , ui(new Ui::Webcam_settings)
+Webcam_settings::Webcam_settings(const std::vector<std::wstring>& video_capture_devices_list, QWidget* parent):
+    m_video_capture_devices_list{video_capture_devices_list},
+    QMainWindow(parent),
+    ui(new Ui::Webcam_settings)
 {
     ui->setupUi(this);
 
-    for(const auto video_capture_devices : m_video_capture_devices_list)
+    for(const auto video_capture_devices: m_video_capture_devices_list)
     {
         ui->m_devices->addItem(QString::fromStdWString(video_capture_devices));
     }

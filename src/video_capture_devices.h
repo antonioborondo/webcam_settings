@@ -2,7 +2,6 @@
 
 #include <dshow.h>
 #include <stdint.h>
-
 #include <string>
 #include <vector>
 
@@ -15,6 +14,6 @@ public:
     const std::vector<std::wstring> get_list() const;
 
 private:
-    HRESULT EnumerateDevices(REFGUID category, IEnumMoniker **ppEnum);
-    void DisplayDeviceInformation(IEnumMoniker *pEnum);
+    HRESULT EnumerateDevices(REFGUID category, IEnumMoniker** ppEnum);
+    void DisplayDeviceInformation(IEnumMoniker* pEnum);
 };
