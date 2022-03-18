@@ -3,7 +3,7 @@
 
 #include <QApplication>
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     const Video_capture_devices video_capture_devices;
     const auto video_capture_devices_list{video_capture_devices.get_list()};
