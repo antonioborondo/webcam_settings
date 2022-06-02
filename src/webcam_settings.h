@@ -8,7 +8,7 @@
 QT_BEGIN_NAMESPACE
 namespace Ui
 {
-class Webcam_settings;
+    class Webcam_settings;
 }
 QT_END_NAMESPACE
 
